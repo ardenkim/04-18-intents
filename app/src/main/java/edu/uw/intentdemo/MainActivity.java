@@ -22,8 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
                 // send message: hey other activities you should start!
                 // create a letter to send
+                //explicit intent
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class); // Intent(who are we sending this from, sent to);
-                // no "this" because it's currently in OnClickListener() -> MainActivity.this
+                                            // no "this" because it's currently in OnClickListener() -> MainActivity.this
+                intent.putExtra("edu.uw.intentdemo.message", "Hello from MainActivity!"); //putExtra(key, value);
+
                 // send the letter
                 startActivity(intent);
 
@@ -53,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 }
 /*
 Intent: message sent from one activity to another activity (between objects/classes) in order to communicate
-   tell an object to do something
-   need reference to send messages over to another
-*/
-
+    tell an object to do something
+    need reference to send messages over to another
+ */
