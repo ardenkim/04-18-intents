@@ -1,6 +1,7 @@
 package edu.uw.intentdemo;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +39,18 @@ public class MainActivity extends AppCompatActivity {
     public void callNumber(View v) {
         Log.v(TAG, "Call button pressed");
 
+        // implicit intent
+        // somebody who can dial this number! this letter is for you
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+
+        //Specify the data type
+        // what data do I want to dial
+        intent.setData(Uri.parse("tel:206-685-1622"));
+
+        // hey intent! who are you going to deliver to?
+        if(intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
 
     }
 
@@ -58,4 +71,7 @@ public class MainActivity extends AppCompatActivity {
 Intent: message sent from one activity to another activity (between objects/classes) in order to communicate
     tell an object to do something
     need reference to send messages over to another
+ */
+/*
+specify actions or data
  */
