@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -73,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View v) {
         Log.v(TAG, "Message button pressed");
 
-
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage("5554", null, "This is a message", null, null);
     }
 
     @Override
