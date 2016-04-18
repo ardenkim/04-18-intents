@@ -3,6 +3,7 @@ package edu.uw.intentdemo;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -54,10 +55,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private static int REQUEST_PICTURE_CODE = 1;
+
     public void takePicture(View v) {
         Log.v(TAG, "Camera button pressed");
 
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
+        if(intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, REQUEST_PICTURE_CODE);
+            // REQUEST_PICTURE_CODE = when I get RGP? get, I know who it came from
+        }
     }
 
     public void sendMessage(View v) {
@@ -74,4 +82,7 @@ Intent: message sent from one activity to another activity (between objects/clas
  */
 /*
 specify actions or data
+ */
+/*
+after taking pictures, you want those pictures saved/sent (give you results back)
  */
