@@ -1,5 +1,6 @@
 package edu.uw.intentdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Log.v(TAG, "Launch button pressed");
 
+                // send message: hey other activities you should start!
+                // create a letter to send
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class); // Intent(who are we sending this from, sent to);
+                // no "this" because it's currently in OnClickListener() -> MainActivity.this
+                // send the letter
+                startActivity(intent);
 
             }
         });
@@ -44,3 +51,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+/*
+Intent: message sent from one activity to another activity (between objects/classes) in order to communicate
+   tell an object to do something
+   need reference to send messages over to another
+*/
+
