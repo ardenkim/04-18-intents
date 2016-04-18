@@ -1,12 +1,14 @@
 package edu.uw.intentdemo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if(requestCode == REQUEST_PICTURE_CODE && resultCode == RESULT_OK) {
+            // I got picture!!
+            Bundle extras = data.getExtras(); // from Intent data
+            Bitmap imageBitmap = (Bitmap)extras.get("data");
+
+            ImageView imageView = (ImageView)findViewById(R.id.imgThumbnail);
+            imageView.setImageBitmap(imageBitmap);
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 }
 /*
 Intent: message sent from one activity to another activity (between objects/classes) in order to communicate
