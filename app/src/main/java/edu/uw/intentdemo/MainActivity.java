@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
                 // send the letter
                 startActivity(intent);
-
+//                sendBroadcast(intent);  // here is intent! whoever can handle this take it.
             }
         });
 
@@ -101,4 +101,8 @@ specify actions or data
  */
 /*
 after taking pictures, you want those pictures saved/sent (give you results back)
+ */
+/*
+In order to relieve implicit intent, declare to let operating systems to know
+hey who can response to this (dialog)? ME ME ME!
  */

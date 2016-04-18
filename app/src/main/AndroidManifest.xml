@@ -20,6 +20,15 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="edu.uw.intentdemo.MainActivity" />
+
+            <intent-filter>
+                <!-- response to the telephone call -->
+                <!-- have to match one of actions below, data, and category below -->
+                <action android:name="android.intent.action.DIAL" />
+                <action android:name="android.intent.action.CALL" />
+                <data android:scheme="tel" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
